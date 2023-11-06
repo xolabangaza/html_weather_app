@@ -105,13 +105,17 @@ h2{
     </div>
     
 </body>
- <script>
+
+<script>
     function changeCityAndTemp() {
         var cityName = prompt("What city do you live in?");
         if (cityName !== null) {
             var temperature = prompt("What temperature is it?");
-            if (temperature !== null) {
-                document.getElementById("weatherInfo").innerHTML = "🌤<br>Currently " + temperature + "° in " + cityName;
+            if (!isNaN(temperature)) {
+                var emoji = (temperature >= 1) ? "😊" : "😢";
+                document.getElementById("weatherInfo").innerHTML = emoji + "<br>🌤 Currently " + temperature + "° in " + cityName;
+            } else {
+                alert("Please enter a valid temperature (numeric value).");
             }
         }
     }
