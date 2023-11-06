@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-</head>
 <style>
     *{
     font-family:Helvetica, Arial, sans-serif ;
@@ -75,9 +74,10 @@ h2{
     line-height: 48px;
 }
 </style>
+</head>
 <body>
     <div class="app">
-        <h1>🌤<br>Currently 21 in Tokyo</h1>
+        <h1 id="weatherInfo">🌤<br>Currently 21° in Tokyo</h1>
         <h2>13° /<strong>23°</strong>
         </h2>
         <ul>
@@ -100,9 +100,20 @@ h2{
                 </p>
             </li>
         </ul>
-        <button>Change city</button>
+        <button onclick="changeCityAndTemp()">Change city</button>
         <p>Coded by Xola Bangaza</p>
     </div>
     
 </body>
+ <script>
+    function changeCityAndTemp() {
+        var cityName = prompt("What city do you live in?");
+        if (cityName !== null) {
+            var temperature = prompt("What temperature is it?");
+            if (temperature !== null) {
+                document.getElementById("weatherInfo").innerHTML = "🌤<br>Currently " + temperature + "° in " + cityName;
+            }
+        }
+    }
+</script>
 </html>
